@@ -25,7 +25,7 @@ int flow[VMAX][VMAX];
 
 int bfs() {
 	int i, j, k, l;
-	int current[VMAX];	// minimum residual capacity upto ith node
+	int current[VMAX];
 	memset(current, 0, sizeof(current));
 	memset(pre, -1, sizeof(pre));
 	pre[source] = -2;
@@ -38,7 +38,7 @@ int bfs() {
 		Q.pop();
 		for (i = 0; i<G[from].size(); i++) {
 			int to = G[from][i];
-			if (pre[to] == -1 && cap[from][to] - flow[from][to]>0) {	// 1-flow[][] is residual flow
+			if (pre[to] == -1 && cap[from][to] - flow[from][to]>0) {	
 				pre[to] = from;
 				current[to] = min(cap[from][to] - flow[from][to], current[from]);
 				if (to == sink)
